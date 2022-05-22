@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "start": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "solid-js": "1.4.1"
+  },
+  "devDependencies": {
+    "vite": "^2.9.9",
+    "vite-plugin-solid": "^2.2.6"
+  },
+  "keywords": [],
+  "name": "7guis-tasks-solid",
+  "description": ""
+}
