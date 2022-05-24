@@ -1,27 +1,27 @@
-import { createSignal, createMemo } from "solid-js";
+import { createSignal, createMemo } from 'solid-js'
 
-const today = new Date();
+const today = new Date()
 const defaultDate = `${today.getFullYear()}-${String(
   today.getMonth() + 1
-).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`
 
 export function FlightBooker() {
-  const [isReturnFlight, setIsReturnFlight] = createSignal(false);
-  const [startDate, setStartDate] = createSignal(defaultDate);
-  const [endDate, setEndDate] = createSignal(defaultDate);
+  const [isReturnFlight, setIsReturnFlight] = createSignal(false)
+  const [startDate, setStartDate] = createSignal(defaultDate)
+  const [endDate, setEndDate] = createSignal(defaultDate)
 
   const isRangeValid = createMemo(() => {
-    return new Date(startDate()).getTime() - new Date(endDate()).getTime() <= 0;
-  });
+    return new Date(startDate()).getTime() - new Date(endDate()).getTime() <= 0
+  })
 
   function book() {
-    const returnMessage = isReturnFlight() ? `, returning on ${endDate()}` : "";
-    window.alert(`Your flight is booked for ${startDate()}${returnMessage}.`);
+    const returnMessage = isReturnFlight() ? `, returning on ${endDate()}` : ''
+    window.alert(`Your flight is booked for ${startDate()}${returnMessage}.`)
   }
 
   return (
     <div>
-      <select onChange={(e) => setIsReturnFlight(e.target.value === "return")}>
+      <select onChange={(e) => setIsReturnFlight(e.target.value === 'return')}>
         <option value="one-way" selected>
           One-way flight
         </option>
@@ -42,5 +42,5 @@ export function FlightBooker() {
         Book
       </button>
     </div>
-  );
+  )
 }
